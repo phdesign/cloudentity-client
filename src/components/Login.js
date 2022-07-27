@@ -1,7 +1,8 @@
 import { Formik } from "formik"
-import { Button, Container, Grid, TextField, Typography } from "@mui/material"
+import { Container, Grid, TextField, Typography } from "@mui/material"
+import LoadingButton from "@mui/lab/LoadingButton"
 
-export const Login = ({ onSubmit }) => {
+export const Login = ({ onSubmit, loading }) => {
   return (
     <Formik
       initialValues={{
@@ -53,7 +54,8 @@ export const Login = ({ onSubmit }) => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button
+                <LoadingButton
+                  loading={loading}
                   color="primary"
                   disabled={formik.isSubmitting}
                   fullWidth
@@ -61,7 +63,7 @@ export const Login = ({ onSubmit }) => {
                   variant="contained"
                 >
                   Log In
-                </Button>
+                </LoadingButton>
               </Grid>
             </Grid>
           </form>

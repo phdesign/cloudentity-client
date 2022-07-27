@@ -1,5 +1,6 @@
 import ClientOAuth2 from "client-oauth2"
 import { createContext, useContext, useEffect, useState } from "react"
+import { useLocalStorage } from "./use-local-storage"
 
 const AuthContext = createContext()
 export const useAuth = () => useContext(AuthContext)
@@ -11,7 +12,8 @@ export const AuthProvider = ({ children }) => {
 
 const useProvideAuth = () => {
   const [auth, setAuth] = useState(null)
-  const [token, setToken] = useState(null)
+  const [isLoggedIn, setLoggedIn] = useState(false)
+  const [storedToken, setStoredToken] = useLocalStorage("authToken", null)
 
   useEffect(() => {
     const auth = new ClientOAuth2({
@@ -24,10 +26,23 @@ const useProvideAuth = () => {
     setAuth(auth)
   }, [])
 
+  useEffect(() => {
+    setLoggedIn(!!storedToken)
+  }, [storedToken, setLoggedIn])
+
   const login = async (email, password) => {
     const token = await auth.owner.getToken(email, password)
-    setToken(token)
+    setStoredToken(token.data)
   }
 
-  return { login, token }
+  const logout = () => {
+    setStoredToken(null)
+  }
+
+  const fetchWithAuth = async (url, options) => {
+    const token = auth.createToken(storedToken)
+    return fetch(url, token.sign(options || {}))
+  }
+
+  return { login, logout, fetchWithAuth, isLoggedIn }
 }
