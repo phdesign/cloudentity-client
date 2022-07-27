@@ -1,0 +1,23 @@
+# https://editorconfig.org
+
+root = true # Top-most EditorConfig file.
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+max_line_length = 80
+trim_trailing_whitespace = true
+
+[{Makefile,go.mod,go.sum,*.go,.gitmodules}]
+indent_size = 2
+indent_stlye = tab
+
+[*.go]
+max_line_length = 120
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false # Two trailing spaces == <br/>

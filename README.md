@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# Cloudentity Client Demo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Secrets
+
+In order to setup the correct OAuth client, you need to create a `.env.local` file with the following values:
+
+```
+REACT_APP_OAUTH2_CLIENT_ID=<clientid>
+REACT_APP_OAUTH2_CLIENT_SECRET=<clientsecret>
+REACT_APP_OAUTH2_TOKEN_URI=<tokenuri>
+REACT_APP_OAUTH2_AUTHORIZATION_URI=<authorizationuri>
+```
+
+These values can be found in the Cloudentity Client config.
 
 ## Available Scripts
 
