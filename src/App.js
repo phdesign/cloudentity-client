@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Home } from "./pages/Home"
-import { Login } from "./pages/Login"
+import { HomePage } from "./pages/Home"
+import { LoginPage } from "./pages/Login"
 import CssBaseline from "@mui/material/CssBaseline"
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>
