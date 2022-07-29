@@ -7,10 +7,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In order to setup the correct OAuth client, you need to create a `.env.local` file with the following values:
 
 ```
-REACT_APP_OAUTH2_CLIENT_ID=<clientid>
-REACT_APP_OAUTH2_CLIENT_SECRET=<clientsecret>
-REACT_APP_OAUTH2_TOKEN_URI=<tokenuri>
-REACT_APP_OAUTH2_AUTHORIZATION_URI=<authorizationuri>
+REACT_APP_CLIENT_ID=<clientid>
+REACT_APP_CLIENT_SECRET=<clientsecret>
+REACT_APP_TOKEN_URI=<tokenuri>
+REACT_APP_AUTHORIZATION_URI=<authorizationuri>
 ```
 
 These values can be found in the Cloudentity Client config.
